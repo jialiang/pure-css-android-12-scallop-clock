@@ -48,12 +48,32 @@
         --second-color: #515d3b;
       }
 
+      #bgm-button {
+        font-family: inherit;
+        font-size: 1rem;
+        font-weight: 400;
+        position: absolute;
+        top: 0.85rem;
+        right: 1rem;
+        padding: 0.15rem 0.5rem;
+        cursor: pointer;
+        color: black;
+        border: 2px solid black;
+        border-radius: 1em;
+        background: transparent;
+      }
+
+      #bgm-button:focus {
+        outline: 2px solid #06c;
+        outline-offset: 2px;
+      }
+
       .clock {
         position: relative;
         overflow: hidden;
         width: var(--clock-size);
         height: var(--clock-size);
-        margin: 10vmin auto 5vmin auto;
+        margin: 5rem auto;
         transform: rotate(3deg);
         background: radial-gradient(circle at center, var(--face-color) 55%, transparent 0);
       }
@@ -134,6 +154,7 @@
         transform-origin: 50% 12.857%;
         background: var(--hour-color);
         box-shadow: 0 0 2px var(--hour-color);
+        animation: 216000s hour-rotate steps(60) infinite;
       }
 
       .clock > .minute {
@@ -143,6 +164,15 @@
         animation: 3600s minute-rotate steps(60) infinite;
         background: var(--minute-color);
         box-shadow: 0 0 2px var(--minute-color);
+      }
+
+      @keyframes hour-rotate {
+        0% {
+          transform: rotate(112.5deg);
+        }
+        100% {
+          transform: rotate(472.5deg);
+        }
       }
 
       @keyframes minute-rotate {
@@ -253,6 +283,8 @@
     </style>
   </head>
   <body>
+    <button id="bgm-button">Play Music</button>
+
     <div class="clock-container">
       <div class="clock">
         <div class="edge"></div>
@@ -341,5 +373,34 @@
         it. The curved text effect is achieved by transforming each letter separately.
       </p>
     </div>
+
+    <audio id="bgm-audio" preload="metadata" src="Shut-Up-and-Let-Me-Go.mp3"></audio>
+
+    <script>
+      function initBgm() {
+        const bgmAudio = document.getElementById("bgm-audio");
+        const bgmButton = document.getElementById("bgm-button");
+
+        const playingText = "Pause Music";
+        const pausedText = "Play Music";
+
+        bgmAudio.onended = function () {
+          bgmButton.textContent = pausedText;
+        };
+
+        bgmButton.onclick = function () {
+          if (bgmAudio.paused) {
+            bgmAudio.volume = 0.67;
+            bgmAudio.play();
+            bgmButton.textContent = playingText;
+          } else {
+            bgmAudio.pause();
+            bgmButton.textContent = pausedText;
+          }
+        };
+      }
+
+      initBgm();
+    </script>
   </body>
 </html>
