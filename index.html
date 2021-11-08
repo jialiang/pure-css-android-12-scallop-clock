@@ -153,7 +153,6 @@
         transform: rotate(112.5deg);
         transform-origin: 50% 12.857%;
         background: var(--hour-color);
-        box-shadow: 0 0 2px var(--hour-color);
         animation: 216000s hour-rotate steps(60) infinite;
       }
 
@@ -163,7 +162,6 @@
         transform-origin: 50% 10%;
         animation: 3600s minute-rotate steps(60) infinite;
         background: var(--minute-color);
-        box-shadow: 0 0 2px var(--minute-color);
       }
 
       @keyframes hour-rotate {
@@ -357,8 +355,7 @@
 
       <p>
         The minute and hours hands are straightforward enough. The only thing to note is that the
-        origin of rotation is right before the tip and not at the edge. I also added a slight
-        "box-shadow" to hide the aliasing that occurs on certain angles.
+        origin of rotation is right before the tip and not at the edge.
       </p>
 
       <p>
