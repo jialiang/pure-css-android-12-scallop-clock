@@ -33,13 +33,6 @@
           format("woff2");
       }
 
-      body {
-        font-family: "Sans", sans-serif;
-        margin: 0;
-        background: linear-gradient(120deg, #be825e, #f4c99a, #f4c99a, #d2a98c);
-        background-attachment: fixed;
-      }
-
       :root {
         --clock-size: 80vmin;
         --date-color: #3d2f21;
@@ -47,6 +40,25 @@
         --hour-color: #564128;
         --minute-color: #874e05;
         --second-color: #515d3b;
+      }
+
+      html {
+        font-family: "Sans", sans-serif;
+      }
+
+      body {
+        margin: 0;
+      }
+
+      body:after {
+        position: fixed;
+        z-index: -1;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        content: "";
+        background: linear-gradient(120deg, #be825e, #f4c99a, #f4c99a, #d2a98c);
       }
 
       #bgm-button {
