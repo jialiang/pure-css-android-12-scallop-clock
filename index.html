@@ -261,10 +261,6 @@
         }
       }
 
-      h1 {
-        line-height: 1.1;
-      }
-
       .article {
         font-size: 1.25rem;
         line-height: 1.44;
@@ -275,9 +271,27 @@
         padding: 0 1rem;
       }
 
+      h1 {
+        line-height: 1.1;
+      }
+
       svg {
         max-width: 100%;
         margin: 1.5rem 0;
+      }
+
+      a {
+        text-decoration: none;
+        color: blue;
+      }
+
+      a:hover {
+        color: red;
+      }
+
+      a:focus {
+        outline: 2px dotted;
+        outline-offset: 2px;
       }
     </style>
   </head>
@@ -316,13 +330,14 @@
       </p>
 
       <p>
-        For reference, this is how it looks (The following image is sourced from the
+        For reference, the following image taken from the
         <a
           href="https://store.google.com/us/product/pixel_6?hl=en-US"
           target="_blank"
           rel="noopener noreferrer"
           >Google Pixel 6 product page</a
-        >):
+        >
+        shows how it actually looks:
       </p>
 
       <svg viewbox="0 0 523 492" fill="none" xmlns="http://www.w3.org/2000/svg">
