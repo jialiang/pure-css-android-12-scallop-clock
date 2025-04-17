@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8" />
@@ -13,23 +13,19 @@
 
     <style>
       @font-face {
-        font-family: "Sans";
-        font-weight: 400;
         font-style: normal;
-
-        font-display: swap;
-        src: url("https://res.cloudinary.com/dedvquoyt/raw/upload/v1635608934/jialiang.github.io/fonts/Google-Sans-Text-400_postip.woff2")
-          format("woff2");
+        font-weight: 400;
+        src: url("./Google-Sans-Text-Regular.woff2") format("woff2");
+        font-family: "Sans";
+        font-display: block;
       }
 
       @font-face {
-        font-family: "Sans";
-        font-weight: 700;
         font-style: normal;
-
-        font-display: swap;
-        src: url("https://res.cloudinary.com/dedvquoyt/raw/upload/v1635608934/jialiang.github.io/fonts/Google-Sans-Display-700_sqxknw.woff2")
-          format("woff2");
+        font-weight: 700;
+        src: url("./Google-Sans-Display-Bold.woff2") format("woff2");
+        font-family: "Sans";
+        font-display: block;
       }
 
       :root {
@@ -41,38 +37,27 @@
         --second-color: #515d3b;
       }
 
-      html {
+      body {
+        margin: 0;
+        background: linear-gradient(120deg, #be825e, #f4c99a, #f4c99a, #d2a98c);
+        background-attachment: fixed;
+        color: #222;
         font-family: "Sans", sans-serif;
       }
 
-      body {
-        margin: 0;
-      }
-
-      body:after {
-        position: fixed;
-        z-index: -1;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100vh;
-        content: "";
-        background: linear-gradient(120deg, #be825e, #f4c99a, #f4c99a, #d2a98c);
-      }
-
       #bgm-button {
-        font-family: inherit;
-        font-size: 1rem;
-        font-weight: 400;
         position: absolute;
         top: 0.85rem;
         right: 1rem;
-        padding: 0.15rem 0.5rem;
         cursor: pointer;
-        color: black;
         border: 2px solid black;
         border-radius: 1em;
         background: transparent;
+        padding: 0.15rem 0.5rem;
+        color: black;
+        font-weight: 400;
+        font-size: 1rem;
+        font-family: inherit;
       }
 
       #bgm-button:focus {
@@ -82,12 +67,17 @@
 
       .clock {
         position: relative;
-        overflow: hidden;
+        transform: rotate(3deg);
+        margin: 5rem auto;
+        background: radial-gradient(circle at center, var(--face-color) 55%, transparent 0);
         width: var(--clock-size);
         height: var(--clock-size);
-        margin: 5rem auto;
-        transform: rotate(3deg);
-        background: radial-gradient(circle at center, var(--face-color) 55%, transparent 0);
+        overflow: hidden;
+      }
+
+      .clock figcaption {
+        height: 0;
+        overflow: hidden;
       }
 
       .clock > .edge {
@@ -95,85 +85,85 @@
         top: 40%;
         right: 0;
         left: 0;
-        width: 20%;
-        height: 20%;
         margin: auto;
         border-radius: 20%;
         background: var(--face-color);
+        width: 20%;
+        height: 20%;
       }
 
       .clock > .edge:nth-child(1) {
-        transform: rotate(0) translateY(-202%) rotate(60deg) skewY(-36deg);
+        transform: rotate(0) translateY(-200%) rotate(60deg) skewY(-36deg);
       }
 
       .clock > .edge:nth-child(2) {
-        transform: rotate(30deg) translateY(-202%) rotate(60deg) skewY(-36deg);
+        transform: rotate(30deg) translateY(-200%) rotate(60deg) skewY(-36deg);
       }
 
       .clock > .edge:nth-child(3) {
-        transform: rotate(60deg) translateY(-202%) rotate(60deg) skewY(-36deg);
+        transform: rotate(60deg) translateY(-200%) rotate(60deg) skewY(-36deg);
       }
 
       .clock > .edge:nth-child(4) {
-        transform: rotate(90deg) translateY(-202%) rotate(60deg) skewY(-36deg);
+        transform: rotate(90deg) translateY(-200%) rotate(60deg) skewY(-36deg);
       }
 
       .clock > .edge:nth-child(5) {
-        transform: rotate(120deg) translateY(-202%) rotate(60deg) skewY(-36deg);
+        transform: rotate(120deg) translateY(-200%) rotate(60deg) skewY(-36deg);
       }
 
       .clock > .edge:nth-child(6) {
-        transform: rotate(150deg) translateY(-202%) rotate(60deg) skewY(-36deg);
+        transform: rotate(150deg) translateY(-200%) rotate(60deg) skewY(-36deg);
       }
 
       .clock > .edge:nth-child(7) {
-        transform: rotate(180deg) translateY(-202%) rotate(60deg) skewY(-36deg);
+        transform: rotate(180deg) translateY(-200%) rotate(60deg) skewY(-36deg);
       }
 
       .clock > .edge:nth-child(8) {
-        transform: rotate(210deg) translateY(-202%) rotate(60deg) skewY(-36deg);
+        transform: rotate(210deg) translateY(-200%) rotate(60deg) skewY(-36deg);
       }
 
       .clock > .edge:nth-child(9) {
-        transform: rotate(240deg) translateY(-202%) rotate(60deg) skewY(-36deg);
+        transform: rotate(240deg) translateY(-200%) rotate(60deg) skewY(-36deg);
       }
 
       .clock > .edge:nth-child(10) {
-        transform: rotate(270deg) translateY(-202%) rotate(60deg) skewY(-36deg);
+        transform: rotate(270deg) translateY(-200%) rotate(60deg) skewY(-36deg);
       }
 
       .clock > .edge:nth-child(11) {
-        transform: rotate(300deg) translateY(-202%) rotate(60deg) skewY(-36deg);
+        transform: rotate(300deg) translateY(-200%) rotate(60deg) skewY(-36deg);
       }
 
       .clock > .edge:nth-child(12) {
-        transform: rotate(330deg) translateY(-202%) rotate(60deg) skewY(-36deg);
+        transform: rotate(330deg) translateY(-200%) rotate(60deg) skewY(-36deg);
       }
 
       .clock > .hand {
         position: absolute;
-        top: 46.4%;
+        top: 46.5%;
         right: 0;
         left: 0;
-        width: 7.25%;
         margin: auto;
         border-radius: calc(var(--clock-size) * 0.2);
+        width: 7.25%;
       }
 
       .clock > .hour {
-        height: 28%;
         transform: rotate(112.5deg);
-        transform-origin: 50% 12.857%;
+        transform-origin: 50% 12.5%;
         animation: 216000s hour-rotate steps(60) infinite;
         background: var(--hour-color);
+        height: 28%;
       }
 
       .clock > .minute {
-        height: 35%;
         transform: rotate(-2.5deg);
         transform-origin: 50% 10%;
         animation: 3600s minute-rotate steps(60) infinite;
         background: var(--minute-color);
+        height: 35%;
       }
 
       @keyframes hour-rotate {
@@ -195,21 +185,19 @@
       }
 
       .clock > .date {
-        font-family: "Sans", sans-serif;
-        font-size: 0;
-        font-size: calc(var(--clock-size) * 0.096);
-        font-weight: 700;
-        line-height: 1;
         position: absolute;
         top: 50%;
         right: 0;
         left: 0;
-        height: calc(var(--clock-size) * 0.096);
-        margin: auto;
         transform: translateY(-50%);
         animation: 60s date-rotate linear infinite;
-        text-align: center;
+        margin: auto;
+        height: calc(var(--clock-size) * 0.096);
         color: var(--date-color);
+        font-weight: 700;
+        font-size: calc(var(--clock-size) * 0.096);
+        line-height: 1;
+        text-align: center;
       }
 
       @keyframes date-rotate {
@@ -234,7 +222,7 @@
       }
 
       .clock > .date > span:nth-child(2) {
-        transform: rotate(30.5deg) translateY(-382%);
+        transform: rotate(30.75deg) translateY(-382%);
       }
 
       .clock > .date > span:nth-child(3) {
@@ -254,13 +242,13 @@
         top: 45.5%;
         right: 0;
         left: 0;
-        width: 9%;
-        height: 9%;
-        margin: auto;
         transform: rotate(40deg) translateY(420%);
         animation: 60s second-rotate linear infinite;
+        margin: auto;
         border-radius: 100%;
         background: var(--second-color);
+        width: 9%;
+        height: 9%;
       }
 
       @keyframes second-rotate {
@@ -272,72 +260,91 @@
         }
       }
 
-      .article {
-        font-size: 1.25rem;
-        line-height: 1.44;
+      article {
         box-sizing: border-box;
-        width: 40rem;
-        max-width: 100%;
         margin: 0 auto 15rem auto;
         padding: 0 1rem;
+        width: 40rem;
+        max-width: 100%;
+        font-size: 1.25rem;
+        line-height: 1.44;
+      }
+
+      figure {
+        margin: 0;
+        text-align: center;
       }
 
       h1 {
+        margin-block: 0.67em;
+        font-size: 2em;
         line-height: 1.1;
       }
 
       svg {
-        max-width: 100%;
         margin: 1.5rem 0;
+        max-width: 100%;
+        height: auto;
       }
 
       a {
-        text-decoration: none;
+        outline: none;
         color: blue;
+        text-decoration: none;
       }
 
       a:hover {
-        color: red;
+        text-decoration: 2px solid underline;
+        text-underline-offset: 3px;
       }
 
-      a:focus {
-        outline: 2px dotted;
+      a:focus-visible {
+        outline: 2px solid black;
         outline-offset: 2px;
+        border-radius: 0.25rem;
+        text-decoration: none;
+      }
+
+      a:hover:focus-visible {
+        outline-color: blue;
       }
     </style>
   </head>
   <body>
     <button id="bgm-button">Play Music</button>
 
-    <div class="clock-container">
-      <div class="clock">
-        <div class="edge"></div>
-        <div class="edge"></div>
-        <div class="edge"></div>
-        <div class="edge"></div>
-        <div class="edge"></div>
-        <div class="edge"></div>
-        <div class="edge"></div>
-        <div class="edge"></div>
-        <div class="edge"></div>
-        <div class="edge"></div>
-        <div class="edge"></div>
-        <div class="edge"></div>
-        <div class="hour hand"></div>
-        <div class="minute hand"></div>
-        <div class="date">
-          <span>T</span><span>u</span><span>e</span> <span>1</span><span>9</span>
-        </div>
-        <div class="second"></div>
+    <figure class="clock">
+      <div class="edge"></div>
+      <div class="edge"></div>
+      <div class="edge"></div>
+      <div class="edge"></div>
+      <div class="edge"></div>
+      <div class="edge"></div>
+      <div class="edge"></div>
+      <div class="edge"></div>
+      <div class="edge"></div>
+      <div class="edge"></div>
+      <div class="edge"></div>
+      <div class="edge"></div>
+      <div class="hour hand"></div>
+      <div class="minute hand"></div>
+      <div class="date" aria-hidden="true">
+        <span>T</span><span>u</span><span>e</span> <span>1</span><span>9</span>
       </div>
-    </div>
-    <div class="article">
+      <div class="second"></div>
+
+      <figcaption>
+        Analog clock with scalloped circle outline showing ten thirty-five. A dot representing
+        seconds and the text "Tue 19" moves smoothly around the clock face, each on opposite sides.
+      </figcaption>
+    </figure>
+
+    <article>
       <h1>Pure CSS Scallop Clock from Android 12.</h1>
 
       <p>
-        Android 12 Beta 5 comes with v7.0 of the Google Clock app. It includes some new analog clock
-        designs. One of them is the Scallop design. I though this design looked cool so I decided to
-        recreate it using only CSS.
+        Android 12 Beta 5 comes with v7.0 of the Google Clock app. One of the new designs included
+        is the Scallop design. I though it looked cool so I recreated it using only CSS.
       </p>
 
       <p>
@@ -351,24 +358,23 @@
         shows how it actually looks:
       </p>
 
-      <svg viewbox="0 0 523 492" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path
-          d="M245.71 480.57a37.38 37.38 0 0 0 31.67 0l35.88-16.78a37.4 37.4 0 0 1 12.62-3.38l39.46-3.41a37.38 37.38 0 0 0 27.43-15.84l22.68-32.47a37.38 37.38 0 0 1 9.24-9.24l32.47-22.68A37.38 37.38 0 0 0 473 349.34l3.4-39.46a37.37 37.37 0 0 1 3.39-12.62l16.78-35.88a37.38 37.38 0 0 0 0-31.67l-16.78-35.88a37.38 37.38 0 0 1-3.38-12.62L473 141.74a37.38 37.38 0 0 0-15.84-27.42L424.7 91.63a37.38 37.38 0 0 1-9.24-9.23l-22.68-32.48a37.38 37.38 0 0 0-27.43-15.83l-39.46-3.41a37.38 37.38 0 0 1-12.62-3.38l-35.88-16.78a37.38 37.38 0 0 0-31.67 0L209.83 27.3a37.38 37.38 0 0 1-12.62 3.38l-39.47 3.41a37.38 37.38 0 0 0-27.42 15.83L107.63 82.4a37.39 37.39 0 0 1-9.23 9.23l-32.48 22.69a37.38 37.38 0 0 0-15.83 27.42l-3.41 39.47a37.38 37.38 0 0 1-3.38 12.62L26.52 229.7a37.38 37.38 0 0 0 0 31.67l16.78 35.88a37.37 37.37 0 0 1 3.38 12.62l3.41 39.46a37.38 37.38 0 0 0 15.83 27.43l32.48 22.69a37.39 37.39 0 0 1 9.23 9.23l22.69 32.48A37.38 37.38 0 0 0 157.74 457l39.47 3.4a37.4 37.4 0 0 1 12.62 3.39l35.88 16.78z"
-          fill="#412C1A" />
-        <rect
-          x="149.73"
-          y="211.37"
-          width="34.79"
-          height="131.15"
-          rx="17.39"
-          transform="rotate(-65 149.73 211.37)"
-          fill="#D17C28" />
-        <rect x="244.61" y="227.06" width="34.79" height="172.29" rx="17.39" fill="#FFDCB7" />
-        <path d="M122.49 395.21a21.22 21.22 0 1 0 30-30 21.22 21.22 0 0 0-30 30z" fill="#E0E7B1" />
-        <path
-          d="m339.97 71.85-9.25-4.22 2.15-4.72 23.54 10.75-2.15 4.72-9.2-4.2-12.66 27.74-5.06-2.3 12.63-27.77zm4.67 34.03c-.37-2.44.37-5.04 2.15-7.79l8.62-13.16 4.59 3-8.2 12.55c-1.13 1.73-1.58 3.3-1.34 4.72a5.07 5.07 0 0 0 2.44 3.48 6.49 6.49 0 0 0 7.13.08 8.8 8.8 0 0 0 2.78-2.7l7.47-11.43 4.53 2.97-13.9 21.25-4.27-2.8 1.9-2.88-.27-.16a8.24 8.24 0 0 1-4.46.7 10.17 10.17 0 0 1-4.69-1.62c-2.62-1.7-4.11-3.77-4.48-6.21zm24.4 18.71a12.51 12.51 0 0 1-.18-6.73 13.9 13.9 0 0 1 3.46-6.22 14.38 14.38 0 0 1 5.8-3.82c2.22-.76 4.45-.95 6.73-.5 2.28.45 4.3 1.5 6.1 3.17 1.92 1.76 3.18 3.7 3.81 5.8s.63 4.21.03 6.31c-.6 2.1-1.76 4.1-3.46 5.9a12.31 12.31 0 0 1-1.24 1.18l-14.6-13.58c-1.47 1.94-2.1 3.9-1.89 5.9.21 2 1.08 3.7 2.55 5.06a7.84 7.84 0 0 0 3.88 2.07 8.35 8.35 0 0 0 4.09-.24l1.83 4.64c-2.28.74-4.56.87-6.81.4a13.08 13.08 0 0 1-6.37-3.49 13.46 13.46 0 0 1-3.73-5.85zm19.93-1.46a6.48 6.48 0 0 0 1.07-5.95 7.19 7.19 0 0 0-2.17-3.28 6.82 6.82 0 0 0-4.51-1.94 8.45 8.45 0 0 0-4.9 1.44l10.5 9.73zm29.1 17.74-6.51-2.38 1.8-4.64 11.54 4.22 2.23 3.2-28 19.4-3.11-4.49 22.04-15.3zm-11.01 29.23 13.29 2.26.07-.27a7.26 7.26 0 0 1-2.33-2.8 9.91 9.91 0 0 1-.97-5.22 11.25 11.25 0 0 1 1.76-5.34 10.67 10.67 0 0 1 4.38-3.88 10.66 10.66 0 0 1 5.9-1.08c2.06.21 3.95.9 5.68 2.1a12.13 12.13 0 0 1 4.01 4.66 12.38 12.38 0 0 1 1.37 6.43 11.57 11.57 0 0 1-1.97 5.74 11.34 11.34 0 0 1-4.46 3.88 13.61 13.61 0 0 1-5.53 1.41c-1.94.08-4.22-.1-6.81-.5l-15.13-2.25.74-5.14zm18.03 1.03a6.44 6.44 0 0 0 3.17 1.18c1.16.1 2.28-.11 3.39-.66a6.15 6.15 0 0 0 2.54-2.28 6.56 6.56 0 0 0 1-3.23 6.8 6.8 0 0 0-.71-3.35 6.5 6.5 0 0 0-2.23-2.6 6.35 6.35 0 0 0-9.07 1.73c-.63 1-.97 2.07-1 3.23a7.17 7.17 0 0 0 .7 3.35 6.48 6.48 0 0 0 2.21 2.63z"
-          fill="#FAEFE8" />
-      </svg>
+      <figure>
+        <svg xmlns="http://www.w3.org/2000/svg" width="478" height="478" viewbox="0 0 478 478">
+          <path
+            fill="#412c1a"
+            d="M222.71 473.57a37.38 37.38 0 0 0 31.67 0l35.88-16.78a37.4 37.4 0 0 1 12.62-3.38l39.46-3.41a37.38 37.38 0 0 0 27.43-15.84l22.68-32.47a37.38 37.38 0 0 1 9.24-9.24l32.47-22.68A37.38 37.38 0 0 0 450 342.34l3.4-39.46a37.37 37.37 0 0 1 3.39-12.62l16.78-35.88a37.38 37.38 0 0 0 0-31.67l-16.78-35.88a37.38 37.38 0 0 1-3.38-12.62L450 134.74a37.38 37.38 0 0 0-15.84-27.42L401.7 84.63a37.38 37.38 0 0 1-9.24-9.23l-22.68-32.48a37.38 37.38 0 0 0-27.43-15.83l-39.46-3.41a37.38 37.38 0 0 1-12.62-3.38L254.39 3.52a37.38 37.38 0 0 0-31.67 0L186.83 20.3a37.38 37.38 0 0 1-12.62 3.38l-39.47 3.41a37.38 37.38 0 0 0-27.42 15.83L84.63 75.4a37.39 37.39 0 0 1-9.23 9.23l-32.48 22.69a37.38 37.38 0 0 0-15.83 27.42l-3.41 39.47a37.38 37.38 0 0 1-3.38 12.62L3.52 222.7a37.38 37.38 0 0 0 0 31.67l16.78 35.88a37.37 37.37 0 0 1 3.38 12.62l3.41 39.46a37.38 37.38 0 0 0 15.83 27.43l32.48 22.69a37.39 37.39 0 0 1 9.23 9.23l22.69 32.48A37.38 37.38 0 0 0 134.74 450l39.47 3.4a37.4 37.4 0 0 1 12.62 3.39z" />
+          <path
+            fill="#d17c28"
+            d="M134.08 188.6a17.35 17.35 0 0 1 23.11-8.41l87.34 40.73a17.35 17.35 0 0 1 8.42 23.1v.02a17.35 17.35 0 0 1-23.12 8.4l-87.34-40.72a17.35 17.35 0 0 1-8.41-23.11z" />
+          <path
+            fill="#ffdcb7"
+            d="M239 220.06h.01c9.63 0 17.39 7.76 17.39 17.39v137.51c0 9.63-7.76 17.39-17.39 17.39H239a17.35 17.35 0 0 1-17.39-17.39V237.45c0-9.63 7.76-17.39 17.39-17.39z" />
+          <path fill="#e0e7b1" d="M99.49 388.21a21.22 21.22 0 1 0 30-30 21.22 21.22 0 0 0-30 30z" />
+          <path
+            fill="#faefe8"
+            d="m316.97 64.85-9.25-4.22 2.15-4.72 23.54 10.75-2.15 4.72-9.2-4.2-12.66 27.74-5.06-2.3zm4.67 34.03c-.37-2.44.37-5.04 2.15-7.79l8.62-13.16 4.59 3-8.2 12.55c-1.13 1.73-1.58 3.3-1.34 4.72a5.07 5.07 0 0 0 2.44 3.48 6.49 6.49 0 0 0 7.13.08 8.8 8.8 0 0 0 2.78-2.7l7.47-11.43 4.53 2.97-13.9 21.25-4.27-2.8 1.9-2.88-.27-.16a8.24 8.24 0 0 1-4.46.7 10.17 10.17 0 0 1-4.69-1.62c-2.62-1.7-4.11-3.77-4.48-6.21zm24.4 18.71a12.51 12.51 0 0 1-.18-6.73 13.9 13.9 0 0 1 3.46-6.22 14.38 14.38 0 0 1 5.8-3.82c2.22-.76 4.45-.95 6.73-.5 2.28.45 4.3 1.5 6.1 3.17a12.9 12.9 0 0 1 3.81 5.8c.63 2.1.63 4.21.03 6.31-.6 2.1-1.76 4.1-3.46 5.9a12.31 12.31 0 0 1-1.24 1.18l-14.6-13.58c-1.47 1.94-2.1 3.9-1.89 5.9.21 2 1.08 3.7 2.55 5.06a7.84 7.84 0 0 0 3.88 2.07 8.35 8.35 0 0 0 4.09-.24l1.83 4.64c-2.28.74-4.56.87-6.81.4a13.08 13.08 0 0 1-6.37-3.49 13.46 13.46 0 0 1-3.73-5.85zm19.93-1.46a6.48 6.48 0 0 0 1.07-5.95 7.19 7.19 0 0 0-2.17-3.28 6.82 6.82 0 0 0-4.51-1.94 8.45 8.45 0 0 0-4.9 1.44l10.5 9.73zm29.1 17.74-6.51-2.38 1.8-4.64 11.54 4.22 2.23 3.2-28 19.4-3.11-4.49 22.04-15.3zm-11.01 29.23 13.29 2.26.07-.27a7.26 7.26 0 0 1-2.33-2.8 9.91 9.91 0 0 1-.97-5.22 11.25 11.25 0 0 1 1.76-5.34 10.67 10.67 0 0 1 4.38-3.88 10.66 10.66 0 0 1 5.9-1.08c2.06.21 3.95.9 5.68 2.1a12.13 12.13 0 0 1 4.01 4.66 12.38 12.38 0 0 1 1.37 6.43 11.57 11.57 0 0 1-1.97 5.74 11.34 11.34 0 0 1-4.46 3.88 13.61 13.61 0 0 1-5.53 1.41c-1.94.08-4.22-.1-6.81-.5l-15.13-2.25zm18.03 1.03a6.44 6.44 0 0 0 3.17 1.18c1.16.1 2.28-.11 3.39-.66a6.15 6.15 0 0 0 2.54-2.28 6.56 6.56 0 0 0 1-3.23 6.8 6.8 0 0 0-.71-3.35 6.5 6.5 0 0 0-2.23-2.6 6.35 6.35 0 0 0-9.07 1.73c-.63 1-.97 2.07-1 3.23a7.17 7.17 0 0 0 .7 3.35 6.48 6.48 0 0 0 2.21 2.63z" />
+        </svg>
+      </figure>
 
       <p>
         For the outline, each hump is actually the corner of a rectangle. The "border-radius"
@@ -393,9 +399,9 @@
         through the Google Font API, although technically only Google themselves are licensed to use
         it. The curved text effect is achieved by transforming each letter separately.
       </p>
-    </div>
+    </article>
 
-    <audio id="bgm-audio" preload="metadata" src="Shut-Up-and-Let-Me-Go.mp3"></audio>
+    <audio id="bgm-audio" preload="metadata" src="./02%20-%20That's%20Not%20My%20Name.flac"></audio>
 
     <script>
       function initBgm() {
