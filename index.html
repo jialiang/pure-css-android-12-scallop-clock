@@ -411,6 +411,14 @@
         const playingText = "Pause Music";
         const pausedText = "Play Music";
 
+        bgmAudio.onplay = function () {
+          bgmButton.textContent = playingText;
+        };
+
+        bgmAudio.onpause = function () {
+          bgmButton.textContent = pausedText;
+        };
+
         bgmAudio.onended = function () {
           bgmButton.textContent = pausedText;
         };
@@ -422,7 +430,6 @@
             bgmButton.textContent = playingText;
           } else {
             bgmAudio.pause();
-            bgmButton.textContent = pausedText;
           }
         };
       }
