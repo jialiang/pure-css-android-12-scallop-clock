@@ -67,7 +67,6 @@
 
       .clock {
         position: relative;
-        transform: rotate(3deg);
         margin: 5rem auto;
         background: radial-gradient(circle at center, var(--face-color) 55%, transparent 0);
         width: var(--clock-size);
@@ -80,7 +79,16 @@
         overflow: hidden;
       }
 
-      .clock > .edge {
+      .clock > .edges > .edges {
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: rotate(3deg);
+        width: 100%;
+        height: 100%;
+      }
+
+      .clock > .edges > .edge {
         position: absolute;
         top: 40%;
         right: 0;
@@ -92,51 +100,51 @@
         height: 20%;
       }
 
-      .clock > .edge:nth-child(1) {
+      .clock > .edges > .edge:nth-child(1) {
         transform: rotate(0) translateY(-200%) rotate(60deg) skewY(-36deg);
       }
 
-      .clock > .edge:nth-child(2) {
+      .clock > .edges > .edge:nth-child(2) {
         transform: rotate(30deg) translateY(-200%) rotate(60deg) skewY(-36deg);
       }
 
-      .clock > .edge:nth-child(3) {
+      .clock > .edges > .edge:nth-child(3) {
         transform: rotate(60deg) translateY(-200%) rotate(60deg) skewY(-36deg);
       }
 
-      .clock > .edge:nth-child(4) {
+      .clock > .edges > .edge:nth-child(4) {
         transform: rotate(90deg) translateY(-200%) rotate(60deg) skewY(-36deg);
       }
 
-      .clock > .edge:nth-child(5) {
+      .clock > .edges > .edge:nth-child(5) {
         transform: rotate(120deg) translateY(-200%) rotate(60deg) skewY(-36deg);
       }
 
-      .clock > .edge:nth-child(6) {
+      .clock > .edges > .edge:nth-child(6) {
         transform: rotate(150deg) translateY(-200%) rotate(60deg) skewY(-36deg);
       }
 
-      .clock > .edge:nth-child(7) {
+      .clock > .edges > .edge:nth-child(7) {
         transform: rotate(180deg) translateY(-200%) rotate(60deg) skewY(-36deg);
       }
 
-      .clock > .edge:nth-child(8) {
+      .clock > .edges > .edge:nth-child(8) {
         transform: rotate(210deg) translateY(-200%) rotate(60deg) skewY(-36deg);
       }
 
-      .clock > .edge:nth-child(9) {
+      .clock > .edges > .edge:nth-child(9) {
         transform: rotate(240deg) translateY(-200%) rotate(60deg) skewY(-36deg);
       }
 
-      .clock > .edge:nth-child(10) {
+      .clock > .edges > .edge:nth-child(10) {
         transform: rotate(270deg) translateY(-200%) rotate(60deg) skewY(-36deg);
       }
 
-      .clock > .edge:nth-child(11) {
+      .clock > .edges > .edge:nth-child(11) {
         transform: rotate(300deg) translateY(-200%) rotate(60deg) skewY(-36deg);
       }
 
-      .clock > .edge:nth-child(12) {
+      .clock > .edges > .edge:nth-child(12) {
         transform: rotate(330deg) translateY(-200%) rotate(60deg) skewY(-36deg);
       }
 
@@ -151,36 +159,36 @@
       }
 
       .clock > .hour {
-        transform: rotate(112.5deg);
+        transform: rotate(102deg);
         transform-origin: 50% 12.5%;
-        animation: 216000s hour-rotate steps(60) infinite;
+        animation: 216000s -1800s hour-rotate steps(60) infinite;
         background: var(--hour-color);
         height: 28%;
       }
 
       .clock > .minute {
-        transform: rotate(-2.5deg);
+        transform: rotate(0);
         transform-origin: 50% 10%;
-        animation: 3600s minute-rotate steps(60) infinite;
+        animation: 3600s -35s minute-rotate steps(60) infinite;
         background: var(--minute-color);
         height: 35%;
       }
 
       @keyframes hour-rotate {
         0% {
-          transform: rotate(112.5deg);
+          transform: rotate(105deg);
         }
         100% {
-          transform: rotate(472.5deg);
+          transform: rotate(465deg);
         }
       }
 
       @keyframes minute-rotate {
         0% {
-          transform: rotate(-2.5deg);
+          transform: rotate(0deg);
         }
         100% {
-          transform: rotate(357.5deg);
+          transform: rotate(360deg);
         }
       }
 
@@ -314,18 +322,20 @@
     <button id="bgm-button">Play Music</button>
 
     <figure class="clock">
-      <div class="edge"></div>
-      <div class="edge"></div>
-      <div class="edge"></div>
-      <div class="edge"></div>
-      <div class="edge"></div>
-      <div class="edge"></div>
-      <div class="edge"></div>
-      <div class="edge"></div>
-      <div class="edge"></div>
-      <div class="edge"></div>
-      <div class="edge"></div>
-      <div class="edge"></div>
+      <div class="edges">
+        <div class="edge"></div>
+        <div class="edge"></div>
+        <div class="edge"></div>
+        <div class="edge"></div>
+        <div class="edge"></div>
+        <div class="edge"></div>
+        <div class="edge"></div>
+        <div class="edge"></div>
+        <div class="edge"></div>
+        <div class="edge"></div>
+        <div class="edge"></div>
+        <div class="edge"></div>
+      </div>
       <div class="hour hand"></div>
       <div class="minute hand"></div>
       <div class="date" aria-hidden="true">
