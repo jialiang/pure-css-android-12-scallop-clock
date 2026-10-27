@@ -2,4 +2,6 @@
 
 *.flac  binary
 *.mp3   binary
+*.ttf   binary
+*.woff  binary
 *.woff2 binary

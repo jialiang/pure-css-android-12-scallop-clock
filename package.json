@@ -1,5 +1,11 @@
 {
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "subset-fonts": "node subset-font.js"
+  },
   "devDependencies": {
+    "font-subsetter": "github:jialiang/font-subsetter",
     "prettier": "^3.9.10",
     "prettier-plugin-css-order": "^2.2.0"
   }

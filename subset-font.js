@@ -1,45 +1,41 @@
-let boldText = "";
-let normalText = "";
+import fs from "node:fs/promises";
+import { fileURLToPath } from "node:url";
 
-const subsets = [
-  { name: "Google-Sans-Display-Bold", text: "" },
-  { name: "Google-Sans-Text-Regular", text: "" },
-];
+import { subsetFonts } from "font-subsetter";
 
-Array.from(document.querySelectorAll("body *")).forEach((elem) => {
-  if (elem.tagName === "SCRIPT") return;
-  if (elem.childElementCount > 0) return;
+// Static cuts of the Google Sans v14 variable font at two optical sizes.
+// Text (opsz 17) is spaced for body copy.
+// Google Sans (opsz 18) is tighter, for the date and heading.
+const fileNames = { regular: "Google-Sans-Text-Regular", bold: "Google-Sans-Bold" };
 
-  const text = elem.textContent.replaceAll("\n", "");
+// The music button's label once it's playing, which only the script sets.
+const runtimeText = "Pause Music";
 
-  if (!text) return;
+// The base64 of the first data URI after the google-sans-bold-start marker in index.html.
+const inlinedBold = /(google-sans-bold-start.*?base64,)[^"]*/s;
 
-  const style = getComputedStyle(elem);
-  const weight = style.getPropertyValue("font-weight");
+const htmlPath = new URL("./index.html", import.meta.url);
+const outputDirectory = new URL("./", import.meta.url);
+const boldPath = new URL(`${fileNames.bold}.woff2`, outputDirectory);
 
-  if (weight === "700") subsets[0].text += text;
-  if (weight === "400") subsets[1].text += text;
+const html = await fs.readFile(htmlPath, "utf8");
+
+await subsetFonts({
+  html,
+  stylesheets: [html.match(/<style>([\s\S]*?)<\/style>/)[1]],
+  families: { Sans: "google-sans" },
+  fileName: ({ weight }) => fileNames[weight],
+  extraCharacters: { [fileNames.regular]: runtimeText },
+  sourceDirectory: fileURLToPath(new URL("./fonts/", import.meta.url)),
+  outputDirectory: fileURLToPath(outputDirectory),
 });
 
-subsets
-  .map((subset, index) => {
-    subset.text = Array.from(new Set(subset.text.split("")))
-      .sort()
-      .join("");
+// Bold's WOFF2 is inlined
+const boldBase64 = (await fs.readFile(boldPath)).toString("base64");
 
-    return subset;
-  })
-  .forEach((subset) => {
-    const command = [
-      "pyftsubset ",
-      `./${subset.name}.woff2`,
-      `--text="${subset.text}"`,
-      "--no-ignore-missing-unicodes",
-      `--output-file=./${subset.name}.subset.woff2`,
-      "--flavor=woff2",
-      "--with-zopfli",
-      "--harfbuzz-repacker",
-    ].join(" ");
+await fs.writeFile(
+  htmlPath,
+  html.replace(inlinedBold, (_, start) => start + boldBase64),
+);
 
-    console.log(command);
-  });
+console.log("Done.");
