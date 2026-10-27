@@ -428,7 +428,10 @@
       </p>
     </article>
 
-    <audio id="bgm-audio" preload="metadata" src="./02%20-%20That's%20Not%20My%20Name.flac"></audio>
+    <audio id="bgm-audio" preload="metadata">
+      <source src="./02%20-%20That's%20Not%20My%20Name.flac" type="audio/flac" />
+      <source src="./02%20-%20That's%20Not%20My%20Name.mp3" type="audio/mpeg" />
+    </audio>
 
     <script>
       function initBgm() {
