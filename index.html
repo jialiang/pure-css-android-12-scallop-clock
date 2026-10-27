@@ -293,7 +293,8 @@
       }
 
       h1 {
-        margin-block: 0.67em;
+        margin-top: 0.67em;
+        margin-bottom: 0.67em;
         font-size: 2em;
         line-height: 1.1;
       }
@@ -305,24 +306,31 @@
       }
 
       a {
-        outline: none;
         color: blue;
         text-decoration: none;
       }
 
       a:hover {
+        text-decoration: underline;
         text-decoration: 2px solid underline;
         text-underline-offset: 3px;
       }
 
-      a:focus-visible {
+      a:focus {
         outline: 2px solid black;
         outline-offset: 2px;
         border-radius: 0.25rem;
+      }
+
+      a:focus:not(:focus-visible) {
+        outline: none;
+      }
+
+      a:focus-visible {
         text-decoration: none;
       }
 
-      a:hover:focus-visible {
+      a:hover:focus {
         outline-color: blue;
       }
     </style>
